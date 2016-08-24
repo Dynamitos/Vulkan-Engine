@@ -9,7 +9,3 @@ Renderer::~Renderer()
 
 }
 
-
-void Renderer::createCommandBuffers(VkCommandBufferInheritanceInfo inheritance)
-{
-}

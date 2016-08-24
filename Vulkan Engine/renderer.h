@@ -7,7 +7,4 @@ public:
 	Renderer();
 	~Renderer();
 protected:
-	virtual void createCommandBuffers(VkCommandBufferInheritanceInfo inheritance);
-	VkCommandPool commandPool;
-	std::vector<VkCommandBuffer> commandBuffers;
 };

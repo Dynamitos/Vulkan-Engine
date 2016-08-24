@@ -679,7 +679,10 @@ VkDescriptorSetAllocateInfo vkTools::initializers::descriptorSetAllocateInfo(
 	return descriptorSetAllocateInfo;
 }
 
-VkDescriptorImageInfo vkTools::initializers::descriptorImageInfo(VkSampler sampler, VkImageView imageView, VkImageLayout imageLayout)
+VkDescriptorImageInfo vkTools::initializers::descriptorImageInfo(
+	VkSampler sampler, 
+	VkImageView imageView, 
+	VkImageLayout imageLayout)
 {
 	VkDescriptorImageInfo descriptorImageInfo = {};
 	descriptorImageInfo.sampler = sampler;
