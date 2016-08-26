@@ -6,6 +6,7 @@
 #include <set>
 #include <array>
 #include <algorithm>
+#include <fstream>
 #include "display.h"
 
 #define VK_CHECK(f)																						\
@@ -56,6 +57,7 @@ namespace util
 	VkPresentModeKHR chooseSwapPresentMode(const std::vector<VkPresentModeKHR> availablePresentModes);
 	VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities, Display* display);
 	void createImageView(VkDevice device, VkImage image, VkFormat format, VkImageView& imageView);
+	VkShaderModule loadShader(VkDevice device, const char* file, VkShaderModuleCreateFlags stage);
 }
 namespace init
 {
@@ -246,11 +248,6 @@ namespace init
 		uint32_t binding,
 		VkDescriptorBufferInfo* bufferInfo);
 
-	VkWriteDescriptorSet WriteDescriptorSet(
-		VkDescriptorSet dstSet,
-		VkDescriptorType type,
-		uint32_t binding,
-		VkDescriptorImageInfo* bufferInfo);
 
 	VkVertexInputBindingDescription VertexInputBindingDescription(
 		uint32_t binding, 
@@ -320,4 +317,8 @@ namespace init
 		uint32_t size,
 		uint32_t offset);
 
+	VkPipelineShaderStageCreateInfo PipelineShaderStageCreateInfo(
+		VkShaderStageFlagBits stage,
+		VkShaderModule module,
+		const char* entryName);
 }

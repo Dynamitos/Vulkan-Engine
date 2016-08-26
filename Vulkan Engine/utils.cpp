@@ -437,24 +437,6 @@ VkWriteDescriptorSet init::WriteDescriptorSet(
 	return writeDescriptorSet;
 }
 
-VkWriteDescriptorSet init::WriteDescriptorSet(
-	VkDescriptorSet dstSet,
-	VkDescriptorType type,
-	uint32_t binding,
-	VkDescriptorImageInfo * imageInfo)
-{
-	VkWriteDescriptorSet writeDescriptorSet = {};
-	writeDescriptorSet.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-	writeDescriptorSet.pNext = NULL;
-	writeDescriptorSet.dstSet = dstSet;
-	writeDescriptorSet.descriptorType = type;
-	writeDescriptorSet.dstBinding = binding;
-	writeDescriptorSet.pImageInfo = imageInfo;
-	// Default value in all examples
-	writeDescriptorSet.descriptorCount = 1;
-	return writeDescriptorSet;
-}
-
 VkVertexInputBindingDescription init::VertexInputBindingDescription(
 	uint32_t binding,
 	uint32_t stride,
@@ -634,6 +616,16 @@ VkPushConstantRange init::PushConstantRange(
 	return pushConstantRange;
 }
 
+VkPipelineShaderStageCreateInfo init::PipelineShaderStageCreateInfo(VkShaderStageFlagBits stage, VkShaderModule module, const char * entryName)
+{
+	VkPipelineShaderStageCreateInfo info = {};
+	info.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+	info.module = module;
+	info.stage = stage;
+	info.pName = entryName;
+	return info;
+}
+
 std::vector<const char*> util::getRequiredExtensions()
 {
 	std::vector<const char*> extensions;
@@ -799,6 +791,31 @@ void util::createImageView(VkDevice device, VkImage image, VkFormat format, VkIm
 
 	VK_CHECK(vkCreateImageView(device, &viewInfo, nullptr, &imageView));
 }
+
+VkShaderModule util::loadShader(VkDevice device, const char * filename, VkShaderModuleCreateFlags stage)
+{
+	std::ifstream file(filename, std::ios::ate | std::ios::binary);
+	if (!file.is_open())
+	{
+		throw std::runtime_error("failed to open file!");
+	}
+	size_t fileSize = (size_t)file.tellg();
+	std::vector<char> buffer(fileSize);
+
+	file.seekg(0);
+	file.read(buffer.data(), fileSize);
+
+	file.close();
+	VkShaderModule module;
+	VkShaderModuleCreateInfo moduleInfo = {};
+	moduleInfo.sType = VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO;
+	moduleInfo.codeSize = buffer.size();
+	moduleInfo.pCode = (uint32_t*)buffer.data();
+	moduleInfo.flags = stage;
+	VK_CHECK(vkCreateShaderModule(device, &moduleInfo, nullptr, &module));
+	return module;
+}
+
 
 VkBool32 __stdcall debugCallback(VkDebugReportFlagsEXT flags, VkDebugReportObjectTypeEXT objType, uint64_t obj, size_t location, int32_t code, const char* layerPrefix, const char* msg, void* userData) {
 	std::cerr << "validation layer: " << msg << std::endl;
