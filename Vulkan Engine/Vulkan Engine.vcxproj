@@ -131,13 +131,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="data.cpp" />
     <ClCompile Include="display.cpp" />
     <ClCompile Include="loader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="masterrenderer.cpp" />
     <ClCompile Include="rawmodel.cpp" />
-    <ClCompile Include="renderer.cpp" />
     <ClCompile Include="shader.cpp" />
+    <ClCompile Include="texturedmodel.cpp" />
     <ClCompile Include="tilerenderer.cpp" />
     <ClCompile Include="tileshader.cpp" />
     <ClCompile Include="utils.cpp" />
@@ -148,9 +149,8 @@
     <ClInclude Include="loader.h" />
     <ClInclude Include="masterrenderer.h" />
     <ClInclude Include="rawmodel.h" />
-    <ClInclude Include="renderable.h" />
-    <ClInclude Include="renderer.h" />
     <ClInclude Include="shader.h" />
+    <ClInclude Include="texturedmodel.h" />
     <ClInclude Include="tilerenderer.h" />
     <ClInclude Include="tileshader.h" />
     <ClInclude Include="utils.h" />

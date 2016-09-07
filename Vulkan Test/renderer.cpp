@@ -1,5 +1,8 @@
+
 #include "renderer.h"
 
+#undef max
+#undef min
 Renderer::Renderer()
 	:display{ Display() } {
 }
@@ -433,6 +436,7 @@ void Renderer::createFramebuffers()
 		VK_CHECK(vkCreateFramebuffer(device, &framebufferInfo, nullptr, &swapChainFramebuffers[i]));
 	}
 }
+
 
 void Renderer::createCommandPool()
 {
@@ -1057,7 +1061,7 @@ VkCommandBuffer Renderer::beginSingleTimeCommands()
 
 	VkCommandBuffer commandBuffer;
 	vkAllocateCommandBuffers(device, &allocInfo, &commandBuffer);
-
+	 
 	VkCommandBufferBeginInfo beginInfo = {};
 	beginInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
 	beginInfo.flags = VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT;

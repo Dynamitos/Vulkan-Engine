@@ -1,3 +1,3 @@
-glslangValidator.exe -V triangle.vert -o triangleVertex.spv
-glslangValidator.exe -V triangle.frag -o triangleFragment.spv
+glslangValidator.exe -V tile.vert -o tileVertex.spv
+glslangValidator.exe -V tile.frag -o tileFragment.spv
 pause

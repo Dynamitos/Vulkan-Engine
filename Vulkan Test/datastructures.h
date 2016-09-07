@@ -141,7 +141,7 @@ const std::vector<uint32_t> indices = {
 #ifdef NDEBUG
 const bool enableValidationLayers = true;
 #else
-const bool enableValidationLayers = true;
+const bool enableValidationLayers = false;
 #endif
 #ifndef WIN32 || WIN64
 #define __stdcall

@@ -11,9 +11,10 @@ class RawModel
 public:
 	RawModel(MeshBuffer vertices, MeshBuffer indices);
 	~RawModel();
-private:
-	VkBuffer vertices;
-	VkBuffer indices;
-	uint32_t numIndices;
+	uint32_t getIndicesCount();
+	virtual void fillCommandBuffer(VkCommandBuffer& cmdBuffer);
+protected:
+	MeshBuffer vertices;
+	MeshBuffer indices;
 };
 

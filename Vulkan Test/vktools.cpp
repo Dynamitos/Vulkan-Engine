@@ -309,7 +309,7 @@ namespace vkTools
 	{
 		size_t size;
 
-		FILE *fp = fopen(fileName, "rb");
+		FILE *fp = nullptr;//fopen(fileName, "rb");
 		assert(fp);
 
 		fseek(fp, 0L, SEEK_END);

@@ -16,7 +16,7 @@ void Display::createDisplay()
 
 	glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 
-	window = glfwCreateWindow(600, 400, "Vulkan Test", nullptr, nullptr);
+	window = glfwCreateWindow(WIDTH, HEIGHT, "Vulkan Test", nullptr, nullptr);
 
 	lastFrameTime = glfwGetTime();
 }

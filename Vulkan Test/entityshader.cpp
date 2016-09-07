@@ -76,5 +76,5 @@ void EntityShader::createDescriptorPool()
 
 void EntityShader::createUniformBuffers()
 {
-	createBuffer
+	//createBuffer
 }

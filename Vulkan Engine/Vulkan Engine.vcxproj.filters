@@ -27,9 +27,6 @@
     <ClCompile Include="display.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="renderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -45,11 +42,14 @@
     <ClCompile Include="rawmodel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="texturedmodel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="data.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="masterrenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -77,7 +77,7 @@
     <ClInclude Include="rawmodel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="renderable.h">
+    <ClInclude Include="texturedmodel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

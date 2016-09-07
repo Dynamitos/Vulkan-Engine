@@ -1,12 +1,13 @@
 #pragma once
 #include "utils.h"
-#include "renderer.h"
+#include "tilerenderer.h"
 class MasterRenderer
 {
 public:
 	MasterRenderer();
 	~MasterRenderer();
 private:
+	void render();
 	void initInstance();
 	void setupDebugCallback();
 	void createSurface();
@@ -14,23 +15,16 @@ private:
 	void createLogicalDevice();
 	void createSwapChain();
 	void createRenderPass();
+	void createImageViews();
 	void createFramebuffers();
-	Display* display;
-	VkInstance instance;
-	VkDebugReportCallbackEXT callback;
-	VkSurfaceKHR surface;
-	VkPhysicalDevice physicalDevice;
-	VkDevice device;
-	VkQueue graphicsQueue;
-	VkQueue presentQueue;
-	VkQueue transferQueue;
-	VkSwapchainKHR swapChain;
-	VkExtent2D swapChainExtent;
-	VkFormat swapChainImageFormat;
-	VkRenderPass renderPass;
-	std::vector<VkImage> swapChainImages;
-	std::vector<VkFramebuffer> frameBuffers;
-
+	void createSemaphores();
+	void createCommandPools();
+	void createCommandBuffer(VkFramebuffer& framebuffer);
+	void recreateSwapChain();
+	VulkanContext* context;
+	VkCommandBuffer primaryCommandBuffer;//submitted for execution
+	VkFence renderFence;
 	//Holds all sub-renderers
-	std::vector<Renderer> renderers;
+	TileRenderer* tileRenderer;
+
 };

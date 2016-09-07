@@ -27,13 +27,7 @@
     <ClCompile Include="datastructures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="vktools.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="entityshader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
