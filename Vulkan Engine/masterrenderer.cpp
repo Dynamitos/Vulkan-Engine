@@ -1,17 +1,13 @@
 #include "masterrenderer.h"
 
-<<<<<<< HEAD
 bool MasterRenderer::leftMouseDown;
 bool MasterRenderer::rightMouseDown;
 
-=======
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 MasterRenderer::MasterRenderer() {
 	context = Data::getInstance().getContext();
 	context->display = new Display();
 	context->display->createDisplay();
 	tileRenderer = new TileRenderer();
-<<<<<<< HEAD
 	terrainRenderer = new TerrainRenderer();
 	glfwSetWindowUserPointer(context->display->getWindow(), this);
 	glfwSetWindowSizeCallback(context->display->getWindow(), &MasterRenderer::windowResized);
@@ -20,8 +16,6 @@ MasterRenderer::MasterRenderer() {
 	glfwSetCursorPosCallback(context->display->getWindow(), &MasterRenderer::mouseMove);
 	camera = new Camera();
 	camera->setPerspective(70.f, context->display->getWidth() / context->display->getHeight(), 0.01f, 1000.f);
-=======
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	initInstance();
 	setupDebugCallback();
 	createSurface();
@@ -32,7 +26,6 @@ MasterRenderer::MasterRenderer() {
 	createRenderPass();
 	tileRenderer->createDescriptorSetLayout();
 	tileRenderer->createGraphicsPipeline();
-<<<<<<< HEAD
 	terrainRenderer->createDescriptorSetLayout();
 	terrainRenderer->createGraphicsPipeline();
 	createCommandPools();
@@ -58,17 +51,6 @@ MasterRenderer::MasterRenderer() {
 		{
 			camera->viewChanged = true;
 		}
-=======
-	createFramebuffers();
-	createCommandPools();
-	tileRenderer->createShaderData();
-	tileRenderer->createDescriptorPool();
-	tileRenderer->createDescriptorSet();
-	createSemaphores();
-	while (!glfwWindowShouldClose(context->display->getWindow()))
-	{
-		render();
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 		context->display->updateDisplay();
 	}
 	context->display->closeDisplay();
@@ -164,11 +146,6 @@ void MasterRenderer::initInstance()
 
 	VK_CHECK(vkCreateInstance(&createInfo, nullptr, &context->instance));
 }
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 void MasterRenderer::setupDebugCallback()
 {
 	VkDebugReportCallbackCreateInfoEXT createInfo =
@@ -223,10 +200,7 @@ void MasterRenderer::createLogicalDevice()
 		queueCreateInfos.push_back(queueCreateInfo);
 	}
 	VkPhysicalDeviceFeatures deviceFeatures = {};
-<<<<<<< HEAD
 	deviceFeatures.fillModeNonSolid = true;
-=======
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 
 	VkDeviceCreateInfo createInfo =
 		init::DeviceCreateInfo(
@@ -299,11 +273,7 @@ void MasterRenderer::createSwapChain()
 
 void MasterRenderer::createRenderPass()
 {
-<<<<<<< HEAD
 	VkAttachmentDescription colorAttachment =
-=======
-	VkAttachmentDescription attachment =
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 		init::AttachmentDescription(
 			context->swapChainImageFormat,
 			VK_SAMPLE_COUNT_1_BIT,
@@ -314,7 +284,6 @@ void MasterRenderer::createRenderPass()
 			VK_IMAGE_LAYOUT_UNDEFINED,
 			VK_IMAGE_LAYOUT_PRESENT_SRC_KHR);
 
-<<<<<<< HEAD
 	VkAttachmentDescription depthAttachment =
 		init::AttachmentDescription(
 			util::findDepthFormat(),
@@ -326,30 +295,21 @@ void MasterRenderer::createRenderPass()
 			VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL,
 			VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
 
-=======
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	VkAttachmentReference colorReference = {};
 	colorReference.attachment = 0;
 	colorReference.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
-<<<<<<< HEAD
 	VkAttachmentReference depthAttachmentRef = {};
 	depthAttachmentRef.attachment = 1;
 	depthAttachmentRef.layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
 
-=======
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	VkSubpassDescription subpassDescription =
 		init::SubpassDescription(
 			VK_PIPELINE_BIND_POINT_GRAPHICS,
 			1,
-<<<<<<< HEAD
 			&colorReference,
 			1,
 			&depthAttachmentRef);
-=======
-			&colorReference);
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 
 	VkSubpassDependency dependency = {};
 	dependency.srcSubpass = VK_SUBPASS_EXTERNAL;
@@ -362,7 +322,6 @@ void MasterRenderer::createRenderPass()
 	dependency.dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
 
 
-<<<<<<< HEAD
 	std::array<VkAttachmentDescription, 2> attachments = { colorAttachment, depthAttachment };
 	VkRenderPassCreateInfo createInfo =
 		init::RenderPassCreateInfo(
@@ -371,15 +330,6 @@ void MasterRenderer::createRenderPass()
 			1,
 			&subpassDescription,
 			1,
-=======
-	VkRenderPassCreateInfo createInfo =
-		init::RenderPassCreateInfo(
-			1,
-			&attachment,
-			1,
-			&subpassDescription,
-			1,//static_cast<uint32_t>(dependencies.size()),
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 			&dependency);
 
 	VK_CHECK(vkCreateRenderPass(context->device, &createInfo, nullptr, &context->renderPass));
@@ -389,11 +339,8 @@ void MasterRenderer::createImageViews()
 	context->swapChainImageViews.resize(context->swapChainImages.size());
 	for (uint32_t i = 0; i < context->swapChainImages.size(); i++)
 	{
-<<<<<<< HEAD
 		util::createImageView(context->swapChainImages[i], context->swapChainImageFormat, VK_IMAGE_ASPECT_COLOR_BIT, context->swapChainImageViews[i]);
-=======
-		util::createImageView(context->swapChainImages[i], context->swapChainImageFormat, context->swapChainImageViews[i]);
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
+
 	}
 }
 void MasterRenderer::createFramebuffers()
@@ -402,7 +349,6 @@ void MasterRenderer::createFramebuffers()
 
 	for (uint32_t i = 0; i < context->swapChainImages.size(); i++)
 	{
-<<<<<<< HEAD
 		std::array<VkImageView, 2> attachments = {
 			context->swapChainImageViews[i],
 			context->depthImageView
@@ -413,17 +359,6 @@ void MasterRenderer::createFramebuffers()
 				context->renderPass,
 				static_cast<uint32_t>(attachments.size()),
 				attachments.data(),
-=======
-		VkImageView attachments[] = {
-			context->swapChainImageViews[i]
-		};
-		util::createImageView(context->swapChainImages[i], context->swapChainImageFormat, context->swapChainImageViews[i]);
-		VkFramebufferCreateInfo createInfo =
-			init::FramebufferCreateInfo(
-				context->renderPass,
-				1,
-				attachments,
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 				context->swapChainExtent.width,
 				context->swapChainExtent.height,
 				1);
@@ -466,7 +401,6 @@ void MasterRenderer::createCommandPools()
 	vkAllocateCommandBuffers(context->device, &allocInfo, &primaryCommandBuffer);
 }
 
-<<<<<<< HEAD
 void MasterRenderer::createDepthResources()
 {
 
@@ -479,8 +413,6 @@ void MasterRenderer::createDepthResources()
 	util::transitionImageLayout(context->depthImage, depthFormat, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
 }
 
-=======
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 void MasterRenderer::createCommandBuffer(VkFramebuffer& framebuffer)
 {
 	vkResetCommandBuffer(primaryCommandBuffer, 0);
@@ -499,7 +431,6 @@ void MasterRenderer::createCommandBuffer(VkFramebuffer& framebuffer)
 	renderPassInfo.renderArea.offset = { 0, 0 };
 	renderPassInfo.renderArea.extent = context->swapChainExtent;
 
-<<<<<<< HEAD
 	std::array<VkClearValue, 2> clearValues = {};
 	clearValues[0].color = { 0.0f, 0.0f, 0.0f, 1.0f };
 	clearValues[1].depthStencil = { 1.0f, 0 };
@@ -513,15 +444,6 @@ void MasterRenderer::createCommandBuffer(VkFramebuffer& framebuffer)
 
 	//tileRenderer->render(primaryCommandBuffer);
 	terrainRenderer->render(primaryCommandBuffer, camera);
-=======
-	VkClearValue clearColor = { 0.0f, 0.0f, 0.0f, 1.0f };
-	renderPassInfo.clearValueCount = 1;
-	renderPassInfo.pClearValues = &clearColor;
-
-	vkCmdBeginRenderPass(primaryCommandBuffer, &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
-
-	tileRenderer->render(primaryCommandBuffer);
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 
 	vkCmdEndRenderPass(primaryCommandBuffer);
 
@@ -532,7 +454,6 @@ void MasterRenderer::createCommandBuffer(VkFramebuffer& framebuffer)
 void MasterRenderer::recreateSwapChain()
 {
 	vkDeviceWaitIdle(context->device);
-<<<<<<< HEAD
 	
 	createSwapChain();
 	createImageViews();
@@ -629,11 +550,5 @@ void MasterRenderer::mouseMove(GLFWwindow * window, double xPos, double yPos)
 		r->mousePos = glm::vec2(posx, posy);
 		r->camera->viewChanged = true;
 	}
-=======
-
-	createSwapChain();
-	createFramebuffers();
-	createRenderPass();
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 }
 

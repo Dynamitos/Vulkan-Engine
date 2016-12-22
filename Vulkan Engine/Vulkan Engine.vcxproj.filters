@@ -1,120 +1,108 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="masterrenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="display.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tilerenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tileshader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="loader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="rawmodel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="texturedmodel.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="camera.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="data.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="terrainrenderer.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="display.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="terrain.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="loader.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="terrainshader.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="main.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="camera.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="masterrenderer.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="perlinnoise.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
-=======
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
+    <ClCompile Include="rawmodel.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="terrainrenderer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="terrainshader.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="texturedmodel.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="tilerenderer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="tileshader.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="masterrenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="shader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="display.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="tilerenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="tileshader.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="camera.h">
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="data.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="display.h">
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="loader.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="rawmodel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="texturedmodel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="terrainrenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="terrain.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="terrainshader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="camera.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="masterrenderer.h">
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="perlinnoise.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
-=======
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
+    <ClInclude Include="rawmodel.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="terrainrenderer.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="terrainshader.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="texturedmodel.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="tilerenderer.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="tileshader.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{6457dcfa-b12f-432f-99a8-6e94a0e7616e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header">
+      <UniqueIdentifier>{2a141552-1da2-46fa-9db5-11572ca66f04}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

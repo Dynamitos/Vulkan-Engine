@@ -62,8 +62,8 @@ Terrain * Terrain::generateTerrain(uint32_t width, uint32_t height, float scale,
 			indexData.push_back(i + width + j * width);
 
 			indexData.push_back(i + 1 + j * width);
-			indexData.push_back(i + width + j * width);
 			indexData.push_back(i + 1 + width + j * width);
+			indexData.push_back(i + width + j * width);
 		}
 	}
 	MeshBuffer indexBuffer = loader.createIndexBuffer(indexData.data(), indexData.size());

@@ -33,12 +33,9 @@ struct VulkanContext
 	VkExtent2D swapChainExtent;
 	VkFormat swapChainImageFormat;
 	VkRenderPass renderPass;
-<<<<<<< HEAD
 	VkImage depthImage;
 	VkDeviceMemory depthMemory;
 	VkImageView depthImageView;
-=======
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	std::vector<VkImage> swapChainImages;
 	std::vector<VkImageView> swapChainImageViews;
 	std::vector<VkFramebuffer> frameBuffers;

@@ -84,6 +84,7 @@ void TerrainShader::createPipeline()
 			VK_CULL_MODE_NONE,
 			VK_FRONT_FACE_COUNTER_CLOCKWISE,
 			0);
+
 	rasterizer.depthClampEnable = VK_FALSE;
 	rasterizer.rasterizerDiscardEnable = VK_FALSE;
 	rasterizer.lineWidth = 1.0f;
@@ -114,7 +115,7 @@ void TerrainShader::createPipeline()
 		init::PipelineDepthStencilStateCreateInfo(
 			VK_TRUE,
 			VK_TRUE,
-			VK_COMPARE_OP_LESS);
+			VK_COMPARE_OP_ALWAYS);
 	depthStencil.depthBoundsTestEnable = VK_FALSE;
 	depthStencil.stencilTestEnable = VK_FALSE;
 
@@ -136,7 +137,7 @@ void TerrainShader::createPipeline()
 	pipelineInfo.pRasterizationState = &rasterizer;
 	pipelineInfo.pMultisampleState = &multisampling;
 	pipelineInfo.pColorBlendState = &colorBlending;
-	pipelineInfo.pDepthStencilState = &depthStencil;
+	//pipelineInfo.pDepthStencilState = &depthStencil;
 	pipelineInfo.layout = pipelineLayout;
 	pipelineInfo.renderPass = context->renderPass;
 	pipelineInfo.subpass = 0;

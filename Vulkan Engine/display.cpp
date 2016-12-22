@@ -3,11 +3,7 @@
 
 
 Display::Display()
-<<<<<<< HEAD
 	:WIDTH{ 2500 }, HEIGHT{ 1500 } {
-=======
-{
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 }
 
 Display::~Display()
@@ -62,7 +58,6 @@ int Display::getHeight()
 {
 	return HEIGHT;
 }
-<<<<<<< HEAD
 
 void Display::setResolution(int width, int height)
 {
@@ -70,5 +65,3 @@ void Display::setResolution(int width, int height)
 	HEIGHT = height;
 }
 
-=======
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c

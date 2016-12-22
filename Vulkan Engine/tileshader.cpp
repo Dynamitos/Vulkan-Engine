@@ -135,13 +135,8 @@ void TileShader::createPipeline()
 
 void TileShader::createUniforms()
 {	
-<<<<<<< HEAD
 	terrainTex = new UniformTexture("ic_launcher.png");
 	itemTex = new UniformTexture("ic_launcher.png");
-=======
-	terrainTex = new UniformTexture("C:\\Users\\Dynamitos5\\Documents\\Schule\\POS\\Vulkan Test\\external\\textures\\ic_launcher.png");
-	itemTex = new UniformTexture("C:\\Users\\Dynamitos5\\Documents\\Schule\\POS\\Vulkan Test\\external\\textures\\ic_launcher.png");
->>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	modelBuffer = new UniformBuffer((uint32_t)sizeof(glm::mat4));
 	viewBuffer = new UniformBuffer((uint32_t)sizeof(glm::mat4));
 	projBuffer = new UniformBuffer((uint32_t)sizeof(glm::mat4));
