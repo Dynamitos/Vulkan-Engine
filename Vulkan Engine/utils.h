@@ -38,9 +38,12 @@ struct Vertex
 
 };
 
+<<<<<<< HEAD
 #define SHADER_PATH "./_Game/shaders/"
 #define IMAGE_PATH "./_Game/textures/"
 
+=======
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 #define VK_CHECK(f)																						\
 {																										\
 	VkResult res = (f);																					\
@@ -78,7 +81,11 @@ namespace util
 	VkSurfaceFormatKHR chooseSwapSurfaceFormat(const std::vector<VkSurfaceFormatKHR>& availableFormats);
 	VkPresentModeKHR chooseSwapPresentMode(const std::vector<VkPresentModeKHR> availablePresentModes);
 	VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities, Display* display);
+<<<<<<< HEAD
 	void createImageView(VkImage image, VkFormat format, VkImageAspectFlags aspect, VkImageView & imageView);
+=======
+	void createImageView(VkImage image, VkFormat format, VkImageView& imageView);
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	VkShaderModule loadShader(const char* file);
 	void createBuffer(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, VkBuffer& buffer, VkDeviceMemory& bufferMemory);
 	uint32_t findMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties);
@@ -86,11 +93,16 @@ namespace util
 	void endSingleTimeCommands(VkCommandBuffer commandBuffer);
 	void copyBuffer(VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize size);
 	void createImage(uint32_t width, uint32_t height, VkFormat format, VkImageTiling tiling, VkImageUsageFlags usage, VkMemoryPropertyFlags properties, VkImage& image, VkDeviceMemory& imageMemory);
+<<<<<<< HEAD
 	void transitionImageLayout(VkImage image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout);
 	bool hasStencilComponent(VkFormat format);
 	void copyImage(VkImage srcImage, VkImage dstImage, uint32_t width, uint32_t height);
 	VkFormat findSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features);
 	VkFormat findDepthFormat();
+=======
+	void transitionImageLayout(VkImage image, VkImageLayout oldLayout, VkImageLayout newLayout);
+	void copyImage(VkImage srcImage, VkImage dstImage, uint32_t width, uint32_t height);
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 }
 namespace init
 {

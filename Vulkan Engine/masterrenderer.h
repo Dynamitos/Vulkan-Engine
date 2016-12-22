@@ -1,11 +1,14 @@
 #pragma once
 #include "utils.h"
 #include "tilerenderer.h"
+<<<<<<< HEAD
 #include "terrainrenderer.h"
 #include "camera.h"
 
 
 
+=======
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 class MasterRenderer
 {
 public:
@@ -24,6 +27,7 @@ private:
 	void createFramebuffers();
 	void createSemaphores();
 	void createCommandPools();
+<<<<<<< HEAD
 	void createDepthResources();
 	void createCommandBuffer(VkFramebuffer& framebuffer);
 	void recreateSwapChain();
@@ -32,11 +36,16 @@ private:
 	static void mousePressed(GLFWwindow* window, int button, int action, int mods);
 	static void mouseMove(GLFWwindow* window, double xPos, double yPos);
 
+=======
+	void createCommandBuffer(VkFramebuffer& framebuffer);
+	void recreateSwapChain();
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	VulkanContext* context;
 	VkCommandBuffer primaryCommandBuffer;//submitted for execution
 	VkFence renderFence;
 	//Holds all sub-renderers
 	TileRenderer* tileRenderer;
+<<<<<<< HEAD
 	TerrainRenderer* terrainRenderer;
 
 	float frameTimer;
@@ -54,5 +63,7 @@ private:
 
 	static bool leftMouseDown;
 	static bool rightMouseDown;
+=======
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 
 };

@@ -91,16 +91,23 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+<<<<<<< HEAD
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+=======
+      <AdditionalIncludeDirectories>C:\Users\Dynamitos5\Documents\Schule\POS\Vulkan Test\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\Dynamitos5\Documents\Schule\POS\Vulkan Test\external\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+<<<<<<< HEAD
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)external\res" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /y</Command>
     </PostBuildEvent>
+=======
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -123,7 +130,11 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+<<<<<<< HEAD
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+=======
+      <AdditionalIncludeDirectories>C:\Users\Dynamitos5\Documents\Schule\POS\Vulkan Test\external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -132,40 +143,58 @@
       <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\Dynamitos5\Documents\Schule\POS\Vulkan Test\external\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+<<<<<<< HEAD
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)external\res" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="camera.cpp" />
+=======
+  </ItemDefinitionGroup>
+  <ItemGroup>
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
     <ClCompile Include="data.cpp" />
     <ClCompile Include="display.cpp" />
     <ClCompile Include="loader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="masterrenderer.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="perlinnoise.cpp" />
     <ClCompile Include="rawmodel.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="terrain.cpp" />
     <ClCompile Include="terrainrenderer.cpp" />
     <ClCompile Include="terrainshader.cpp" />
+=======
+    <ClCompile Include="rawmodel.cpp" />
+    <ClCompile Include="shader.cpp" />
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
     <ClCompile Include="texturedmodel.cpp" />
     <ClCompile Include="tilerenderer.cpp" />
     <ClCompile Include="tileshader.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="camera.h" />
+=======
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
     <ClInclude Include="data.h" />
     <ClInclude Include="display.h" />
     <ClInclude Include="loader.h" />
     <ClInclude Include="masterrenderer.h" />
+<<<<<<< HEAD
     <ClInclude Include="perlinnoise.h" />
     <ClInclude Include="rawmodel.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="terrain.h" />
     <ClInclude Include="terrainrenderer.h" />
     <ClInclude Include="terrainshader.h" />
+=======
+    <ClInclude Include="rawmodel.h" />
+    <ClInclude Include="shader.h" />
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
     <ClInclude Include="texturedmodel.h" />
     <ClInclude Include="tilerenderer.h" />
     <ClInclude Include="tileshader.h" />

@@ -802,7 +802,12 @@ VkExtent2D util::chooseSwapExtent(const VkSurfaceCapabilitiesKHR & capabilities,
 		return actualExtent;
 	}
 }
+<<<<<<< HEAD
 void util::createImageView(VkImage image, VkFormat format, VkImageAspectFlags aspect, VkImageView & imageView)
+=======
+
+void util::createImageView(VkImage image, VkFormat format, VkImageView & imageView)
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 {
 	VulkanContext* context = Data::getInstance().getContext();
 	VkImageViewCreateInfo viewInfo = {};
@@ -810,7 +815,11 @@ void util::createImageView(VkImage image, VkFormat format, VkImageAspectFlags as
 	viewInfo.image = image;
 	viewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
 	viewInfo.format = format;
+<<<<<<< HEAD
 	viewInfo.subresourceRange.aspectMask = aspect;
+=======
+	viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	viewInfo.subresourceRange.baseMipLevel = 0;
 	viewInfo.subresourceRange.levelCount = 1;
 	viewInfo.subresourceRange.baseArrayLayer = 0;
@@ -822,9 +831,13 @@ void util::createImageView(VkImage image, VkFormat format, VkImageAspectFlags as
 VkShaderModule util::loadShader(const char * filename)
 {
 	VulkanContext* context = Data::getInstance().getContext();
+<<<<<<< HEAD
 	std::string sfile = std::string(SHADER_PATH);
 	sfile.append(filename);
 	std::ifstream file(sfile, std::ios::ate | std::ios::binary);
+=======
+	std::ifstream file(filename, std::ios::ate | std::ios::binary);
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	if (!file.is_open())
 	{
 		throw std::runtime_error("failed to open file!");
@@ -967,11 +980,18 @@ void util::createImage(uint32_t width, uint32_t height, VkFormat format, VkImage
 
 	vkBindImageMemory(context->device, image, imageMemory, 0);
 }
+<<<<<<< HEAD
 bool util::hasStencilComponent(VkFormat format) {
 	return format == VK_FORMAT_D32_SFLOAT_S8_UINT || format == VK_FORMAT_D24_UNORM_S8_UINT;
 }
 void util::transitionImageLayout(VkImage image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout) {
 	VkCommandBuffer commandBuffer = util::beginSingleTimeCommands();
+=======
+
+void util::transitionImageLayout(VkImage image, VkImageLayout oldLayout, VkImageLayout newLayout)
+{
+	VkCommandBuffer commandBuffer = beginSingleTimeCommands();
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 
 	VkImageMemoryBarrier barrier = {};
 	barrier.sType = VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER;
@@ -980,6 +1000,7 @@ void util::transitionImageLayout(VkImage image, VkFormat format, VkImageLayout o
 	barrier.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
 	barrier.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
 	barrier.image = image;
+<<<<<<< HEAD
 
 	if (newLayout == VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL) {
 		barrier.subresourceRange.aspectMask = VK_IMAGE_ASPECT_DEPTH_BIT;
@@ -992,11 +1013,17 @@ void util::transitionImageLayout(VkImage image, VkFormat format, VkImageLayout o
 		barrier.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
 	}
 
+=======
+	barrier.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	barrier.subresourceRange.baseMipLevel = 0;
 	barrier.subresourceRange.levelCount = 1;
 	barrier.subresourceRange.baseArrayLayer = 0;
 	barrier.subresourceRange.layerCount = 1;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	if (oldLayout == VK_IMAGE_LAYOUT_PREINITIALIZED && newLayout == VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL) {
 		barrier.srcAccessMask = VK_ACCESS_HOST_WRITE_BIT;
 		barrier.dstAccessMask = VK_ACCESS_TRANSFER_READ_BIT;
@@ -1009,14 +1036,18 @@ void util::transitionImageLayout(VkImage image, VkFormat format, VkImageLayout o
 		barrier.srcAccessMask = VK_ACCESS_TRANSFER_WRITE_BIT;
 		barrier.dstAccessMask = VK_ACCESS_SHADER_READ_BIT;
 	}
+<<<<<<< HEAD
 	else if (oldLayout == VK_IMAGE_LAYOUT_UNDEFINED && newLayout == VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL) {
 		barrier.srcAccessMask = 0;
 		barrier.dstAccessMask = VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
 	}
+=======
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	else {
 		throw std::invalid_argument("unsupported layout transition!");
 	}
 
+<<<<<<< HEAD
 	vkCmdPipelineBarrier(
 		commandBuffer,
 		VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT,
@@ -1025,6 +1056,9 @@ void util::transitionImageLayout(VkImage image, VkFormat format, VkImageLayout o
 		0, nullptr,
 		1, &barrier
 		);
+=======
+	vkCmdPipelineBarrier(commandBuffer, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, 0, 0, nullptr, 0, nullptr, 1, &barrier);
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 
 	endSingleTimeCommands(commandBuffer);
 }
@@ -1052,6 +1086,7 @@ void util::copyImage(VkImage srcImage, VkImage dstImage, uint32_t width, uint32_
 
 	endSingleTimeCommands(commandBuffer);
 }
+<<<<<<< HEAD
 VkFormat util::findSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features)
 {
 	VulkanContext* context = Data::getInstance().getContext();
@@ -1075,6 +1110,10 @@ VkFormat util::findDepthFormat()
 		VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT);
 }
 VkBool32 __stdcall debugCallback(VkDebugReportFlagsEXT flags, VkDebugReportObjectTypeEXT objType, uint64_t obj, size_t location, int32_t code, const char* layerPrefix, const char* msg, void* userDataManager) {
+=======
+
+VkBool32 __stdcall debugCallback(VkDebugReportFlagsEXT flags, VkDebugReportObjectTypeEXT objType, uint64_t obj, size_t location, int32_t code, const char* layerPrefix, const char* msg, void* userData) {
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	std::cerr << "validation layer: " << msg << std::endl;
 
 	return VK_FALSE;
@@ -1100,9 +1139,13 @@ UniformTexture::UniformTexture(const char * fileName)
 {
 	VulkanContext* context = Data::getInstance().getContext();
 	int texWidth, texHeight, texChannels;
+<<<<<<< HEAD
 	std::string path = IMAGE_PATH;
 	path.append(fileName);
 	stbi_uc* pixels = stbi_load(path.c_str(), &texWidth, &texHeight, &texChannels, 4);
+=======
+	stbi_uc* pixels = stbi_load(fileName, &texWidth, &texHeight, &texChannels, 4);
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	VkDeviceSize imageSize = texWidth * texHeight * 4;
 
 	this->bufferSize = imageSize;
@@ -1118,6 +1161,7 @@ UniformTexture::UniformTexture(const char * fileName)
 
 	util::createImage(texWidth, texHeight, VK_FORMAT_R8G8B8A8_UNORM, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, image, deviceMemory);
 
+<<<<<<< HEAD
 	util::transitionImageLayout(stagingImage, VK_FORMAT_R8G8B8A8_UNORM, VK_IMAGE_LAYOUT_PREINITIALIZED, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
 	util::transitionImageLayout(image, VK_FORMAT_R8G8B8A8_UNORM, VK_IMAGE_LAYOUT_PREINITIALIZED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
 
@@ -1128,6 +1172,18 @@ UniformTexture::UniformTexture(const char * fileName)
 	stbi_image_free(pixels);
 
 	util::createImageView(image, VK_FORMAT_R8G8B8A8_UNORM, VK_IMAGE_ASPECT_COLOR_BIT, imageView);
+=======
+	util::transitionImageLayout(stagingImage, VK_IMAGE_LAYOUT_PREINITIALIZED, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
+	util::transitionImageLayout(image, VK_IMAGE_LAYOUT_PREINITIALIZED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
+
+	util::copyImage(stagingImage, image, texWidth, texHeight);
+
+	util::transitionImageLayout(image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
+
+	stbi_image_free(pixels);
+
+	util::createImageView(image, VK_FORMAT_R8G8B8A8_UNORM, imageView);
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 
 	VkSamplerCreateInfo samplerInfo =
 		init::SamplerCreateInfo();

@@ -98,7 +98,10 @@ void Renderer::createSurface()
 }
 void Renderer::pickPhysicalDevice()
 {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	uint32_t deviceCount = 0;
 	vkEnumeratePhysicalDevices(instance, &deviceCount, nullptr);
 	

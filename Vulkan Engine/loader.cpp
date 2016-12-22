@@ -57,6 +57,7 @@ MeshBuffer Loader::createVertexBuffer(void* vertices, VkDeviceSize deviceSize, s
 	buffer.size = deviceSize;
 	return buffer;
 }
+<<<<<<< HEAD
 StagedMeshBuffer Loader::createStagedVertexBuffer(void * vertices, VkDeviceSize deviceSize, size_t vertexSize)
 {
 	VkBuffer stagingBuffer;
@@ -82,6 +83,8 @@ StagedMeshBuffer Loader::createStagedVertexBuffer(void * vertices, VkDeviceSize 
 	buffer.stagMem = stagingMemory;
 	return buffer;
 }
+=======
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 std::unique_ptr<Loader> Loader::m_instance;
 std::once_flag Loader::m_onceFlag;
 

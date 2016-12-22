@@ -9,7 +9,10 @@ public:
 	virtual ~Loader();
 	MeshBuffer createIndexBuffer(uint32_t* indices, VkDeviceSize indexCount);
 	MeshBuffer createVertexBuffer(void* vertices, VkDeviceSize vertexCount, size_t vertexSize);
+<<<<<<< HEAD
 	StagedMeshBuffer createStagedVertexBuffer(void* vertices, VkDeviceSize vertexCount, size_t vertexSize);
+=======
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	static Loader& getInstance();
 private:
 	VulkanContext* context;

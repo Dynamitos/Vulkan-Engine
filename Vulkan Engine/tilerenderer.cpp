@@ -1,7 +1,11 @@
 #include "tilerenderer.h"
 
 TileRenderer::TileRenderer()
+<<<<<<< HEAD
 	:tileShader{ new TileShader("tileVertex.spv", "tileFragment.spv") },
+=======
+	:tileShader{ new TileShader("C:\\Users\\Dynamitos5\\Documents\\Schule\\POS\\Vulkan Test\\x64\\Debug\\tileVertex.spv", "C:\\Users\\Dynamitos5\\Documents\\Schule\\POS\\Vulkan Test\\x64\\Debug\\tileFragment.spv") },
+>>>>>>> 32fa936776b44eff7ac43e37a15c7dd9390fb28c
 	loader{ Loader::getInstance() } {
 	context = Data::getInstance().getContext();
 }
